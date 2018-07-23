@@ -1,0 +1,22 @@
+page-home {
+
+    .login {
+        background: url("../assets/imgs/background.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    img.rounded-corners{
+        border-radius: 55px;
+      }
+
+
+
+      //this removes the scroll bar on the side
+      .scroll-content {
+        overflow: hidden;
+    }
+
+
+}
