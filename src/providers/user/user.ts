@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { UrlProvider } from '../url/url';
 
 /*
   Generated class for the UserProvider provider.
@@ -11,23 +12,23 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class UserProvider {
 
-  constructor(public http: Http) {
+  constructor(
+    public http: Http,
+    public urlProvider: UrlProvider
+  ) {
     console.log('Hello UserProvider Provider');
   }
 
-  private baseUrl = "https://zipteampurple.herokuapp.com";
 
   private token: string;
 
   getToken(){return this.token}
 
   setToken(token: string){this.token = token}
-
   
-
   login(username, password, callback){
    
-    var url: string = this.baseUrl + "/login";
+    var url: string = this.urlProvider.getBaseUrl() + "/login";
  
     var header = new Headers({
       'content-type': 'application/json',

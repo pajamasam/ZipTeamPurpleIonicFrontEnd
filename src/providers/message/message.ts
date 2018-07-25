@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { UserProvider } from '../user/user';
+import { UrlProvider } from '../url/url';
 
 /*
   Generated class for the MessageProvider provider.
@@ -12,16 +13,16 @@ import { UserProvider } from '../user/user';
 @Injectable()
 export class MessageProvider {
 
-  constructor(public http: Http, public userProvider: UserProvider) {
+  constructor(
+    public http: Http,
+    public userProvider: UserProvider,
+    public urlProvider: UrlProvider
+  ) {
     console.log('Hello MessageProvider Provider');
   }
 
-
-  private baseUrl = "https://zipteampurple.herokuapp.com";
-
-
   getAll(){
-    var url: string = this.baseUrl + "/get_messages";
+    var url: string = this.urlProvider.getBaseUrl() + "/get_messages";
     var header = new Headers({
       'Authorization': this.userProvider.getToken()
     })
@@ -32,7 +33,7 @@ export class MessageProvider {
   }
  
   post(channelId: number, message: string, callback){
-    var url: string = this.baseUrl + "/post";
+    var url: string = this.urlProvider.getBaseUrl() + "/post";
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
       'Content-Type': 'application/json'
@@ -54,7 +55,7 @@ export class MessageProvider {
   }
  
   get(channelId: number, callback){
-    var url: string = this.baseUrl + "/messages?channelid=" + channelId ;
+    var url: string = this.urlProvider.getBaseUrl() + "/messages?channelid=" + channelId ;
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
       'Content-Type': 'application/json'
@@ -69,7 +70,7 @@ export class MessageProvider {
   }
  
   delete(messageId: number, callback){
-    var url: string = this.baseUrl + "/delete?messageId=" +messageId;
+    var url: string = this.urlProvider.getBaseUrl() + "/delete?messageId=" +messageId;
     
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),

@@ -11,8 +11,6 @@
 
 </ion-buttons> -->
 
-
-
 <ion-header>
 
   <ion-navbar>
@@ -23,7 +21,6 @@
         <button ion-button icon-only menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-
         <button ion-button (click)="sendMessage()">
           <ion-icon name="add"></ion-icon>
         </button>
@@ -40,16 +37,37 @@
 
 <ion-content padding>
 
+
+    <ion-list padding>
+        <h1>Channels</h1>
+        <ion-item-sliding *ngFor="let channel of channels">
+            <ion-item>{{channel.name}}</ion-item>
+
+          <!-- <ion-item-options side="right">
+              <button ion-button>
+                  <ion-icon name="settings"></ion-icon>
+                </button>
+              <button color="danger" ion-button (click)="deleteMessage(message.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+     
+          </ion-item-options> -->
+        </ion-item-sliding>
+
+        <button>Create new Channel</button>
+        
+        <!-- <ion-item>Todo 2</ion-item>
+        <ion-item>Todo 3</ion-item> -->
+      </ion-list>
+
     <ion-list padding>
       <ion-item-sliding *ngFor="let message of messages">
           <ion-item>{{message.user.username}} - {{message.message}}</ion-item>
     
         <ion-item-options side="right">
-   
             <button ion-button>
                 <ion-icon name="settings"></ion-icon>
               </button>
-   
             <button color="danger" ion-button (click)="deleteMessage(message.id)">
               <ion-icon name="trash"></ion-icon>
             </button>
@@ -62,4 +80,5 @@
     </ion-list>
    
    </ion-content>
+
 

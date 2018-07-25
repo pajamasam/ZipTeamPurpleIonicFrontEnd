@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { MessageProvider } from '../providers/message/message';
 import { ChannelProvider } from '../providers/channel/channel';
+import { UrlProvider } from '../providers/url/url';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ChannelProvider } from '../providers/channel/channel';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     MessageProvider,
-    ChannelProvider
+    ChannelProvider,
+    UrlProvider
   ]
 })
 export class AppModule {}

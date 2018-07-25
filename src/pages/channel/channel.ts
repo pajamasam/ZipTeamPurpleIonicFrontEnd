@@ -21,6 +21,16 @@ export class ChannelPage {
   public messages=[];
   public channels=[];
 
+  private currentChannel = {"id":1};
+
+  setCurrentChannel(currentChannel){
+    this.currentChannel = currentChannel;
+  }
+
+  getCurrentChannelId(){
+    return this.currentChannel.id;
+  }
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private alertController: AlertController,
     private messageProvider: MessageProvider,
