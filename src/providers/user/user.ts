@@ -15,7 +15,7 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
-
+  private baseUrl = "https://zipteampurple.herokuapp.com";
 
   private token: string;
 
@@ -27,7 +27,7 @@ export class UserProvider {
 
   login(username, password, callback){
    
-    var url: string = "http://localhost:8080/login";
+    var url: string = this.baseUrl + "/login";
  
     var header = new Headers({
       'content-type': 'application/json',

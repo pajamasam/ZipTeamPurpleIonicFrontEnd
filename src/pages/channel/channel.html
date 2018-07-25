@@ -21,9 +21,14 @@
     <ion-buttons start>
 
         <button ion-button icon-only menuToggle>
-      
           <ion-icon name="menu"></ion-icon>
-      
+        </button>
+
+        <button ion-button (click)="sendMessage()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+        <button ion-button (click)="getMessages()">
+          <ion-icon name="refresh"></ion-icon>
         </button>
       
       </ion-buttons>
@@ -37,7 +42,7 @@
 
     <ion-list padding>
       <ion-item-sliding *ngFor="let message of messages">
-        <ion-item>{{message.message}}</ion-item>
+          <ion-item>{{message.user.username}} - {{message.message}}</ion-item>
     
         <ion-item-options side="right">
    
@@ -45,9 +50,9 @@
                 <ion-icon name="settings"></ion-icon>
               </button>
    
-            <!-- <button color="danger" ion-button (click)="deleteMessage(todo.id)">
+            <button color="danger" ion-button (click)="deleteMessage(message.id)">
               <ion-icon name="trash"></ion-icon>
-            </button> -->
+            </button>
    
         </ion-item-options>
       </ion-item-sliding>

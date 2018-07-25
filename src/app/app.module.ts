@@ -13,6 +13,7 @@ import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { MessageProvider } from '../providers/message/message';
+import { ChannelProvider } from '../providers/channel/channel';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MessageProvider } from '../providers/message/message';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    MessageProvider
+    MessageProvider,
+    ChannelProvider
   ]
 })
 export class AppModule {}

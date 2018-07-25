@@ -17,11 +17,11 @@ export class MessageProvider {
   }
 
 
-
+  private baseUrl = "https://zipteampurple.herokuapp.com";
 
 
   getAll(){
-    var url: string = "http://localhost:8080/get_messages";
+    var url: string = this.baseUrl + "/get_messages";
     var header = new Headers({
       'Authorization': this.userProvider.getToken()
     })
@@ -32,7 +32,7 @@ export class MessageProvider {
   }
  
   post(channelId: number, message: string, callback){
-    var url: string = "http://localhost:8080/post";
+    var url: string = this.baseUrl + "/post";
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
       'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export class MessageProvider {
   }
  
   get(channelId: number, callback){
-    var url: string = "http://localhost:8080/messages?channelid=" + channelId ;
+    var url: string = this.baseUrl + "/messages?channelid=" + channelId ;
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
       'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ export class MessageProvider {
   }
  
   delete(messageId: number, callback){
-    var url: string = "http://localhost:8080/delete?messageId=" +messageId;
+    var url: string = this.baseUrl + "/delete?messageId=" +messageId;
     
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
