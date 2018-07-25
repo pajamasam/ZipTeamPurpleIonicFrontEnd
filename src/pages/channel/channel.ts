@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MessageProvider } from '../../providers/message/message';
 
 /**
  * Generated class for the ChannelPage page.
@@ -15,11 +16,55 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChannelPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  public messages=[
+    {
+      message: "Hello"
+    },
+    {
+      message: "sup"
+    }
+  ]
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private messageProvider: MessageProvider) {
+
+      this.getMessages();
+      
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelPage');
   }
 
+
+
+
+  getMessages(){
+    this.messageProvider.get(1, after => {
+      this.messages = after;
+    });
+  }
+ 
+  deleteMessage(messageId: number){
+    this.messageProvider.delete(messageId, after =>{
+      this.getMessages();
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+

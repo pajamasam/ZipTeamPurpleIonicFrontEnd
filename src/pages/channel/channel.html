@@ -1,18 +1,60 @@
-<!--
-  Generated template for the ChannelPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+
+
+<!-- <ion-buttons start>
+
+  <button ion-button icon-only menuToggle>
+
+    <ion-icon name="menu"></ion-icon>
+
+  </button>
+
+</ion-buttons> -->
+
+
+
 <ion-header>
 
   <ion-navbar>
-    <ion-title>channel</ion-title>
+    <ion-title>Channel</ion-title>
+
+    <ion-buttons start>
+
+        <button ion-button icon-only menuToggle>
+      
+          <ion-icon name="menu"></ion-icon>
+      
+        </button>
+      
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
+
 <ion-content padding>
 
-</ion-content>
+    <ion-list padding>
+      <ion-item-sliding *ngFor="let message of messages">
+        <ion-item>{{message.message}}</ion-item>
+    
+        <ion-item-options side="right">
+   
+            <button ion-button>
+                <ion-icon name="settings"></ion-icon>
+              </button>
+   
+            <!-- <button color="danger" ion-button (click)="deleteMessage(todo.id)">
+              <ion-icon name="trash"></ion-icon>
+            </button> -->
+   
+        </ion-item-options>
+      </ion-item-sliding>
+      
+      <!-- <ion-item>Todo 2</ion-item>
+      <ion-item>Todo 3</ion-item> -->
+    </ion-list>
+   
+   </ion-content>
+

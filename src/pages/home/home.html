@@ -1,6 +1,7 @@
 <ion-header>
-
 </ion-header>
+
+
 
 <ion-content text-center class = "login">
 
@@ -9,24 +10,39 @@
 
   <br><br><br><br>
   
+
+
+  <form [formGroup]="formgroup" (ngSubmit)="sendLogin(formgroup.value)">
+
 <ion-list>
 
   <ion-item text-center>
 
+
     <ion-label fixed>Username</ion-label>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" formControlName="username"></ion-input>
+  </ion-item>
+
+  <ion-item text-center *ngIf="username.hasError('required') && username.touched">
+    <p> *Please enter your username</p>
   </ion-item>
 
   <ion-item text-center>
     <ion-label fixed>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
+
+  <ion-item text-center *ngIf="password.hasError('required') && password.touched">
+      <p> *Please enter your password</p>
+    </ion-item>
+
 
 </ion-list>
 
 
 
-<button ion-button color="danger" round (click)="login()">Login</button>
+
+<button ion-button color="danger" round type="submit">Login</button>
 
 <!-- line break -->
 <br>
@@ -34,10 +50,26 @@
 <button ion-button color="danger" round>Sign Up</button>
 
 
+</form>
+
+
+  <!-- <form [formGroup]="loginform" (ngSubmit)="sendLogin(loginForm.value)" *ngIf="loginForm">
+
+    <ion-label fixed>Username</ion-label>
+    <input type="text" name="name" formControlName="username">
+
+    <ion-label fixed>Password</ion-label>
+    <input type="text" name="name" formControlName="password">
+
+    <input type="submit" class="cta-btn filled" value="Submit" [disabled]="!loginForm.valid">
+   </form> -->
+
+
 
 
 
   <!-- Toggle menu button -->
-  <!-- <br>
-  <button ion-button secondary menuToggle>Toggle Menu</button>  -->
+  <!-- <br> -->
+  <button ion-button secondary menuToggle>Toggle Menu</button> 
+  
 </ion-content>
