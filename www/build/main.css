@@ -25692,3 +25692,10 @@ page-home img.rounded-corners {
 page-home .scroll-content {
   overflow: hidden;
 }
+
+page-register .register {
+  background: url("../assets/imgs/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

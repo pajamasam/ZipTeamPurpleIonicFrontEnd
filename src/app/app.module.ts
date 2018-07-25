@@ -13,6 +13,7 @@ import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { MessageProvider } from '../providers/message/message';
+import { RegisterPage } from '../pages/register/register';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MessageProvider } from '../providers/message/message';
     MyApp,
     HomePage,
     ListPage,
-    ChannelPage
+    ChannelPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { MessageProvider } from '../providers/message/message';
     MyApp,
     HomePage,
     ListPage,
-    ChannelPage
+    ChannelPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
