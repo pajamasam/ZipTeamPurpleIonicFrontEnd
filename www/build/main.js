@@ -240,10 +240,10 @@ var ChannelProvider = /** @class */ (function () {
     };
     ChannelProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */]])
     ], ChannelProvider);
     return ChannelProvider;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=channel.js.map
@@ -546,7 +546,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/app/app.html"*/'\n\n\n\n\n\n<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Zip-Slack</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n\n\n'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Zip-Slack</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -671,7 +671,7 @@ var ChannelPage = /** @class */ (function () {
     };
     ChannelPage.prototype.start = function () {
         var _this = this;
-        this.timerToken = setInterval(function () { return _this.runningLoopOfMessages(_this.channelProvider); }, 500);
+        this.timerToken = setInterval(function () { return _this.runningLoopOfMessages(_this.channelProvider); }, 5000);
     };
     ChannelPage.prototype.getMessages = function () {
         var _this = this;
@@ -692,45 +692,54 @@ var ChannelPage = /** @class */ (function () {
         });
     };
     ChannelPage.prototype.deleteMessage = function (messageId) {
+        var _this = this;
         this.messageProvider.delete(messageId, function (after) {
-            //this.getMessages();
+            _this.getMessages();
         });
     };
+    // sendMessage(){
+    //   let addTodoAlert = this.alertController.create({
+    //     title: "Send Message",
+    //     message: "Enter a message:",
+    //     inputs: [
+    //       {
+    //         type: "text",
+    //         name: "addTodoInput"
+    //       }
+    //     ],
+    //     buttons: [
+    //         {
+    //           text: "Cancel"
+    //         },
+    //         {
+    //           text: "Send",
+    //           handler: (inputData) => {
+    //             let todoText;
+    //             todoText = inputData.addTodoInput;
+    //             //this.messageProider.getAll();
+    //             this.messageProvider.post(1, todoText, after => {
+    //               this.getMessages();
+    //             });
+    //             //this.todos.push(todoText);
+    //             //this.todoProvider.addTodo(todoText);
+    //           }
+    //         }
+    //     ]
+    //   });
+    //   addTodoAlert.present();
+    // }
     ChannelPage.prototype.sendMessage = function () {
         var _this = this;
-        var addTodoAlert = this.alertController.create({
-            title: "Send Message",
-            message: "Enter a message:",
-            inputs: [
-                {
-                    type: "text",
-                    name: "addTodoInput"
-                }
-            ],
-            buttons: [
-                {
-                    text: "Cancel"
-                },
-                {
-                    text: "Send",
-                    handler: function (inputData) {
-                        var todoText;
-                        todoText = inputData.addTodoInput;
-                        //this.messageProider.getAll();
-                        _this.messageProvider.post(1, todoText, function (after) {
-                            _this.getMessages();
-                        });
-                        //this.todos.push(todoText);
-                        //this.todoProvider.addTodo(todoText);
-                    }
-                }
-            ]
+        if (!this.message.trim())
+            return;
+        this.messageProvider.post(1, this.message, function (after) {
+            _this.message = '';
+            _this.getMessages();
         });
-        addTodoAlert.present();
     };
     ChannelPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-channel',template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/'\n\n\n<!-- <ion-buttons start>\n\n  <button ion-button icon-only menuToggle>\n\n    <ion-icon name="menu"></ion-icon>\n\n  </button>\n\n</ion-buttons> -->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Channel</ion-title>\n\n    <ion-buttons start>\n\n        <button ion-button icon-only menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <button ion-button (click)="sendMessage()">\n          <ion-icon name="add"></ion-icon>\n        </button>\n        <button ion-button (click)="getMessages()">\n          <ion-icon name="refresh"></ion-icon>\n        </button>\n      \n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n    <!-- <ion-list padding>\n        <h1>Channels</h1>\n        <ion-item-sliding *ngFor="let channel of channels">\n            <ion-item>{{channel.name}}</ion-item>\n\n          <ion-item-options side="right">\n              <button ion-button>\n                  <ion-icon name="settings"></ion-icon>\n                </button>\n              <button color="danger" ion-button (click)="deleteMessage(message.id)">\n                <ion-icon name="trash"></ion-icon>\n              </button>\n     \n          </ion-item-options>\n        </ion-item-sliding>\n\n        <button>Create new Channel</button>\n        \n        <ion-item>Todo 2</ion-item>\n        <ion-item>Todo 3</ion-item>\n      </ion-list> -->\n\n    <ion-list padding>\n      <ion-item-sliding *ngFor="let message of messages">\n          <ion-item>{{message.user.username}} - {{message.message}}</ion-item>\n    \n        <ion-item-options side="right">\n            <button ion-button>\n                <ion-icon name="settings"></ion-icon>\n              </button>\n            <button color="danger" ion-button (click)="deleteMessage(message.id)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n   \n        </ion-item-options>\n      </ion-item-sliding>\n      \n      <!-- <ion-item>Todo 2</ion-item>\n      <ion-item>Todo 3</ion-item> -->\n    </ion-list>\n   \n   </ion-content>\n\n\n'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/,
+            selector: 'page-channel',template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/'\n\n\n<!-- <ion-buttons start>\n\n  <button ion-button icon-only menuToggle>\n\n    <ion-icon name="menu"></ion-icon>\n\n  </button>\n\n</ion-buttons> -->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Channel</ion-title>\n\n    <ion-buttons start>\n\n        <button ion-button icon-only menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <!-- <button ion-button (click)="sendMessage()">\n          <ion-icon name="add"></ion-icon>\n        </button> -->\n        <button ion-button (click)="getMessages()">\n          <ion-icon name="refresh"></ion-icon>\n        </button>\n      \n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n    <!-- <ion-list padding>\n        <h1>Channels</h1>\n        <ion-item-sliding *ngFor="let channel of channels">\n            <ion-item>{{channel.name}}</ion-item>\n\n          <ion-item-options side="right">\n              <button ion-button>\n                  <ion-icon name="settings"></ion-icon>\n                </button>\n              <button color="danger" ion-button (click)="deleteMessage(message.id)">\n                <ion-icon name="trash"></ion-icon>\n              </button>\n     \n          </ion-item-options>\n        </ion-item-sliding>\n\n        <button>Create new Channel</button>\n        \n        <ion-item>Todo 2</ion-item>\n        <ion-item>Todo 3</ion-item>\n      </ion-list> -->\n\n    <ion-list padding>\n      <ion-item-sliding *ngFor="let message of messages">\n          <ion-item>{{message.user.username}} - {{message.message}}</ion-item>\n    \n        <ion-item-options side="right">\n            <button ion-button>\n                <ion-icon name="settings"></ion-icon>\n              </button>\n            <button color="danger" ion-button (click)="deleteMessage(message.id)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n   \n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n\n    <ion-footer>\n        <textarea #chat_input\n        placeholder="Text Input"\n        [(ngModel)]="message"\n        (keyup.enter)="sendMessage()"\n        >\n</textarea>\n<button ion-button clear icon-only item-right (click)="sendMessage()">\n<ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n</button>\n    </ion-footer>\n   \n   </ion-content>\n\n\n'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_message_message__["a" /* MessageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_message_message__["a" /* MessageProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */]) === "function" && _e || Object])
     ], ChannelPage);

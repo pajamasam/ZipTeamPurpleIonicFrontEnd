@@ -21,6 +21,8 @@ export class ChannelPage {
   public messages=[];
   public channels=[];
 
+  public message: any;
+
   private timerToken: number;
 
   private currentChannel = {"id":1};
@@ -49,7 +51,7 @@ export class ChannelPage {
 
 
   start() {
-    this.timerToken = setInterval( ()=> this.runningLoopOfMessages(this.channelProvider), 500);
+    this.timerToken = setInterval( ()=> this.runningLoopOfMessages(this.channelProvider), 5000);
   }
 
   getMessages(){
@@ -71,41 +73,49 @@ export class ChannelPage {
   }
   deleteMessage(messageId: number){
     this.messageProvider.delete(messageId, after =>{
-      //this.getMessages();
+      this.getMessages();
     });
   }
 
-  sendMessage(){
-    let addTodoAlert = this.alertController.create({
-      title: "Send Message",
-      message: "Enter a message:",
-      inputs: [
-        {
-          type: "text",
-          name: "addTodoInput"
-        }
-      ],
-      buttons: [
-          {
-            text: "Cancel"
-          },
-          {
-            text: "Send",
-            handler: (inputData) => {
-              let todoText;
-              todoText = inputData.addTodoInput;
-              //this.messageProider.getAll();
-              this.messageProvider.post(1, todoText, after => {
-                this.getMessages();
-              });
+  // sendMessage(){
+  //   let addTodoAlert = this.alertController.create({
+  //     title: "Send Message",
+  //     message: "Enter a message:",
+  //     inputs: [
+  //       {
+  //         type: "text",
+  //         name: "addTodoInput"
+  //       }
+  //     ],
+  //     buttons: [
+  //         {
+  //           text: "Cancel"
+  //         },
+  //         {
+  //           text: "Send",
+  //           handler: (inputData) => {
+  //             let todoText;
+  //             todoText = inputData.addTodoInput;
+  //             //this.messageProider.getAll();
+  //             this.messageProvider.post(1, todoText, after => {
+  //               this.getMessages();
+  //             });
               
-              //this.todos.push(todoText);
-              //this.todoProvider.addTodo(todoText);
-            }
-          }
-      ]
+  //             //this.todos.push(todoText);
+  //             //this.todoProvider.addTodo(todoText);
+  //           }
+  //         }
+  //     ]
+  //   });
+  //   addTodoAlert.present();
+  // }
+
+  sendMessage(){
+    if (!this.message.trim()) return;
+    this.messageProvider.post(1, this.message, after => {
+      this.message = '';
+      this.getMessages();
     });
-    addTodoAlert.present();
   }
 
 
