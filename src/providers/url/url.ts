@@ -14,8 +14,8 @@ export class UrlProvider {
   //   console.log('Hello UrlProvider Provider');
   // }
 
-  private baseUrl = "http://localhost:8080";
-  //private baseUrl = "https://zipteampurple.herokuapp.com";
+  //private baseUrl = "http://localhost:8080";
+  private baseUrl = "https://zipteampurple.herokuapp.com";
 
   setBaseUrl(baseUrl: string){
     this.baseUrl = baseUrl;

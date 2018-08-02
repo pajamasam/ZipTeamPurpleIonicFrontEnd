@@ -21,6 +21,8 @@ export class ChannelPage {
   public messages=[];
   public channels=[];
 
+  private timerToken: number;
+
   private currentChannel = {"id":1};
 
   setCurrentChannel(currentChannel){
@@ -42,6 +44,12 @@ export class ChannelPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelPage');
+    this.start();
+  }
+
+
+  start() {
+    this.timerToken = setInterval( ()=> this.runningLoopOfMessages(this.channelProvider), 500);
   }
 
   getMessages(){
@@ -51,14 +59,19 @@ export class ChannelPage {
   }
 
   getChannels(){
-    this.channelProvider.get(channels => {
+    this.timerToken = setInterval(this.channelProvider.get(channels => {
       this.channels = channels;
+    }), 5000);
+  }
+  
+  runningLoopOfMessages(channelProvider: ChannelProvider) {
+    this.messageProvider.get(1, after => {
+      this.messages = after.json();
     });
   }
- 
   deleteMessage(messageId: number){
     this.messageProvider.delete(messageId, after =>{
-      this.getMessages();
+      //this.getMessages();
     });
   }
 

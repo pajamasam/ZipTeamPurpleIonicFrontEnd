@@ -15,6 +15,7 @@ import { HttpModule } from '@angular/http';
 import { MessageProvider } from '../providers/message/message';
 import { ChannelProvider } from '../providers/channel/channel';
 import { UrlProvider } from '../providers/url/url';
+import { RegisterPage } from '../pages/register/register';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UrlProvider } from '../providers/url/url';
     MyApp,
     HomePage,
     ListPage,
-    ChannelPage
+    ChannelPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { UrlProvider } from '../providers/url/url';
     MyApp,
     HomePage,
     ListPage,
-    ChannelPage
+    ChannelPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

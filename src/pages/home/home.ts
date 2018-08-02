@@ -4,6 +4,7 @@ import { ChannelPage } from '../channel/channel';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 import { MessageProvider } from '../../providers/message/message';
+import { RegisterPage } from '../register/register';
 
 
 
@@ -54,8 +55,11 @@ export class HomePage {
   }
 
 
-  setLoginForm() {
+  registerPage(){
+    this.navCtrl.push(RegisterPage);
+  }
 
+  setLoginForm() {
   }
 
 

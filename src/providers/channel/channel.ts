@@ -12,6 +12,8 @@ import { Http, RequestOptions, Headers } from '../../../node_modules/@angular/ht
 @Injectable()
 export class ChannelProvider {
 
+  
+
   constructor(
     public http: Http,
     public userProvider: UserProvider

@@ -47,13 +47,13 @@
 <!-- line break -->
 <br>
 
-<button ion-button color="danger" round>Sign Up</button>
+<button ion-button color="danger" (click)="registerPage()" round>Sign Up</button>
 
 
 </form>
 
 
-  <!-- <form [formGroup]="loginform" (ngSubmit)="sendLogin(loginForm.value)" *ngIf="loginForm">
+  <form [formGroup]="loginform" (ngSubmit)="sendLogin(loginForm.value)" *ngIf="loginForm">
 
     <ion-label fixed>Username</ion-label>
     <input type="text" name="name" formControlName="username">
@@ -62,7 +62,7 @@
     <input type="text" name="name" formControlName="password">
 
     <input type="submit" class="cta-btn filled" value="Submit" [disabled]="!loginForm.valid">
-   </form> -->
+   </form>
 
 
 
