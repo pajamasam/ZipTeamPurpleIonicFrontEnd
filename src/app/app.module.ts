@@ -13,6 +13,8 @@ import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { MessageProvider } from '../providers/message/message';
+import { ChannelProvider } from '../providers/channel/channel';
+import { UrlProvider } from '../providers/url/url';
 import { RegisterPage } from '../pages/register/register';
 
 
@@ -44,7 +46,9 @@ import { RegisterPage } from '../pages/register/register';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    MessageProvider
+    MessageProvider,
+    ChannelProvider,
+    UrlProvider
   ]
 })
 export class AppModule {}

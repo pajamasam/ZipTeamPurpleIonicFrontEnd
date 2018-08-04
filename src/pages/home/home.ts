@@ -56,15 +56,14 @@ export class HomePage {
   }
 
 
-  setLoginForm() {
-
-  }
-
-  registerPage() {
+  registerPage(){
     this.navCtrl.push(RegisterPage);
   }
 
+  setLoginForm() {
+  }
 
+  
 
 }
 

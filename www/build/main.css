@@ -25678,6 +25678,12 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+ion-footer {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+}
+
 page-home .login {
   background: url("../assets/imgs/background.jpg");
   background-repeat: no-repeat;
