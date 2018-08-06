@@ -35,6 +35,7 @@ export class ChannelPage {
     return this.currentChannel.id;
   }
   
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private alertController: AlertController,
     private messageProvider: MessageProvider,
@@ -117,11 +118,6 @@ export class ChannelPage {
       this.getMessages();
     });
   }
-
-
-
-
-
 
 
 

@@ -20,16 +20,21 @@
       <ion-list-header>
           <h2>Channels</h2>
         </ion-list-header>
+
         <!-- <ion-item (click)="openPage(ChannelPage)">General Channel</ion-item> -->
         <ion-item menuClose (click)="openChannelPage()">General Channel</ion-item>
 
         <button menuClose ion-button color="light" type="button"(click)="openCreateChannelPage()" round>+ New Channel</button>
         
-        <button menuClose ion-button color="light" type="button"(click)="openCreateChannelPage()" round>View All Channel</button>
+        <button menuClose ion-button color="light" type="button"(click)="openPage()" round>
+          <div><ion-icon name="eye" style="padding-right: 5px;"></ion-icon>  </div> 
+          View All Channel
+        </button>
 
         <ion-list-header>
             Direct messages
           </ion-list-header>
+
           <ion-item (click)="openPage(ChannelPage)">nmaidanos</ion-item>
           <ion-item (click)="openPage(ChannelPage)">Small_Wrld</ion-item>
 
@@ -44,6 +49,9 @@
 
           </ion-footer>
 
+
+
+          
     </ion-list>
 
 

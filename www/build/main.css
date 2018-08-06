@@ -25679,6 +25679,7 @@ ion-navbar.toolbar {
 }
 
 ion-footer {
+  position: relative;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
   background-color: #fff;
