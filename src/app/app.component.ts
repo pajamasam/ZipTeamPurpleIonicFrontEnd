@@ -22,7 +22,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'General Channel', component: ChannelPage }
+      { title: 'Home', component: HomePage },
+      { title: 'List', component: ListPage },
+      { title: 'Channel', component: ChannelPage }
     ];
 
   }
@@ -41,4 +43,15 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  openChannelPage(){
+    this.nav.setRoot(ChannelPage);
+  }
+
+
+  backToLoginPage(){
+    this.nav.setRoot(HomePage);
+  }
+
+    
 }

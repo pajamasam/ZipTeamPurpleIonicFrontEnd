@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -69,11 +69,15 @@ webpackEmptyAsyncContext.id = 115;
 var map = {
 	"../pages/channel/channel.module": [
 		282,
-		1
+		2
 	],
-	"../pages/register/register.module": [
+	"../pages/create-channel/create-channel.module": [
 		283,
 		0
+	],
+	"../pages/register/register.module": [
+		284,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -454,6 +458,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/channel/channel.module#ChannelPageModule', name: 'ChannelPage', segment: 'channel', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/create-channel/create-channel.module#CreateChannelPageModule', name: 'CreateChannelPage', segment: 'create-channel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -542,12 +547,18 @@ var MyApp = /** @class */ (function () {
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
     };
+    MyApp.prototype.openChannelPage = function () {
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_channel_channel__["a" /* ChannelPage */]);
+    };
+    MyApp.prototype.backToLoginPage = function () {
+        this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/jaehoonp/ZipTeamPurple-FrontEnd/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Zip-Slack</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n\n      \n\n      <button menuClose ion-item *ngFor="" (click)="openPage(p)">\n        \n      </button>\n\n\n\n      <ion-list-header>\n          <h2>Channels</h2>\n        </ion-list-header>\n        <ion-item (click)="openPage(ChannelPage)">General Channel</ion-item>\n\n        <button ion-button color="light" type="button"(click)="openPage(ChannelPage)">+ New Channel</button>\n        \n\n        <ion-list-header>\n            Direct messages\n          </ion-list-header>\n          <ion-item (click)="openPage(ChannelPage)">nmaidanos</ion-item>\n          <ion-item (click)="openPage(ChannelPage)">Small_Wrld</ion-item>\n\n          <button ion-button color="light" type="button" (click)="openPage(Channel)">+ New Direcet Message</button>\n          \n\n\n\n          <ion-footer text-center>\n\n              <button ion-button color="danger" type="submit" (click)="openPage(ChannelPage)">Logout</button>\n\n          </ion-footer>\n\n    </ion-list>\n\n\n\n\n\n\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/jaehoonp/ZipTeamPurple-FrontEnd/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/jaehoonp/ZipTeamPurple-FrontEnd/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Zip-Slack</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n\n      \n\n      <button menuClose ion-item *ngFor="" (click)="openPage(p)">\n        \n      </button>\n\n      \n\n      <ion-list-header>\n          <h2>Channels</h2>\n        </ion-list-header>\n        <!-- <ion-item (click)="openPage(ChannelPage)">General Channel</ion-item> -->\n        <ion-item menuClose (click)="openChannelPage()">General Channel</ion-item>\n\n        <button ion-button color="light" type="button"(click)="openPage(ChannelPage)" round>+ New Channel</button>\n        \n\n        <ion-list-header>\n            Direct messages\n          </ion-list-header>\n          <ion-item (click)="openPage(ChannelPage)">nmaidanos</ion-item>\n          <ion-item (click)="openPage(ChannelPage)">Small_Wrld</ion-item>\n\n          <button ion-button color="light" type="button" (click)="openPage(Channel)">+ New Direcet Message</button>\n          \n\n\n\n          <ion-footer text-center>\n\n              <button menuClose ion-button color="danger" type="submit" (click)="backToLoginPage()" round>Logout</button>\n\n          </ion-footer>\n\n    </ion-list>\n\n\n\n\n\n\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/jaehoonp/ZipTeamPurple-FrontEnd/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
