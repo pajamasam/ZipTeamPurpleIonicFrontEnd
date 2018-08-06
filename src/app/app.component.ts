@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChannelPage } from '../pages/channel/channel';
 import { CreateChannelPage } from '../pages/create-channel/create-channel';
+import { AllChannelsPage } from '../pages/all-channels/all-channels';
 
 
 @Component({
@@ -58,5 +59,21 @@ export class MyApp {
   openCreateChannelPage(){
     this.nav.push(CreateChannelPage);
   }
+
+
+  openAllChannelsPage(){
+    this.nav.push(AllChannelsPage);
+  }
+
+
+
+
+
+
+
+
+
+
+
     
 }

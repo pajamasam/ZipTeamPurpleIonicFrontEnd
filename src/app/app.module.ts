@@ -17,6 +17,7 @@ import { ChannelProvider } from '../providers/channel/channel';
 import { UrlProvider } from '../providers/url/url';
 import { RegisterPage } from '../pages/register/register';
 import { CreateChannelPage } from '../pages/create-channel/create-channel';
+import { AllChannelsPage } from '../pages/all-channels/all-channels';
 
 
 
@@ -27,7 +28,8 @@ import { CreateChannelPage } from '../pages/create-channel/create-channel';
     ListPage,
     ChannelPage,
     RegisterPage,
-    CreateChannelPage
+    CreateChannelPage,
+    AllChannelsPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { CreateChannelPage } from '../pages/create-channel/create-channel';
     ListPage,
     ChannelPage,
     RegisterPage,
-    CreateChannelPage
+    CreateChannelPage,
+    AllChannelsPage
   ],
   providers: [
     StatusBar,
