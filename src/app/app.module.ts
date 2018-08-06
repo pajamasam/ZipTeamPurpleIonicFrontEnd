@@ -16,6 +16,8 @@ import { MessageProvider } from '../providers/message/message';
 import { ChannelProvider } from '../providers/channel/channel';
 import { UrlProvider } from '../providers/url/url';
 import { RegisterPage } from '../pages/register/register';
+import { CreateChannelPage } from '../pages/create-channel/create-channel';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { RegisterPage } from '../pages/register/register';
     HomePage,
     ListPage,
     ChannelPage,
-    RegisterPage
+    RegisterPage,
+    CreateChannelPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { RegisterPage } from '../pages/register/register';
     HomePage,
     ListPage,
     ChannelPage,
-    RegisterPage
+    RegisterPage,
+    CreateChannelPage
   ],
   providers: [
     StatusBar,

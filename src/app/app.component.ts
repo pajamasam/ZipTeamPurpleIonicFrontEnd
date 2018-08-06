@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChannelPage } from '../pages/channel/channel';
+import { CreateChannelPage } from '../pages/create-channel/create-channel';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -53,5 +55,8 @@ export class MyApp {
     this.nav.setRoot(HomePage);
   }
 
+  openCreateChannelPage(){
+    this.nav.push(CreateChannelPage);
+  }
     
 }

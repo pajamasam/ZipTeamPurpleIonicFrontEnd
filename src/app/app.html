@@ -23,8 +23,9 @@
         <!-- <ion-item (click)="openPage(ChannelPage)">General Channel</ion-item> -->
         <ion-item menuClose (click)="openChannelPage()">General Channel</ion-item>
 
-        <button ion-button color="light" type="button"(click)="openPage(ChannelPage)" round>+ New Channel</button>
+        <button menuClose ion-button color="light" type="button"(click)="openCreateChannelPage()" round>+ New Channel</button>
         
+        <button menuClose ion-button color="light" type="button"(click)="openCreateChannelPage()" round>View All Channel</button>
 
         <ion-list-header>
             Direct messages
