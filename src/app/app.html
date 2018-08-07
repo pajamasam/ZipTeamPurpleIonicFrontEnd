@@ -22,7 +22,9 @@
         </ion-list-header>
 
         <!-- <ion-item (click)="openPage(ChannelPage)">General Channel</ion-item> -->
-        <ion-item menuClose (click)="openChannelPage()">General Channel</ion-item>
+        <ion-item menuClose *ngFor="let channel of this.channelProvider.userChannels" (click)="setChannel(channel)">
+          {{ channel.name }}
+        </ion-item>
 
         <button menuClose ion-button color="light" type="button"(click)="openCreateChannelPage()" round>+ New Channel</button>
         
@@ -33,7 +35,7 @@
           View All Channels
         </button>
 
-
+<!-- 
         <ion-list-header>
             Direct messages
           </ion-list-header>
@@ -42,7 +44,7 @@
           <ion-item (click)="openPage(ChannelPage)">Small_Wrld</ion-item>
 
           <button ion-button color="light" type="button" (click)="openPage(Channel)">+ New Direct Message</button>
-          
+           -->
 
 
 

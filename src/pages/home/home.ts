@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { UserProvider } from '../../providers/user/user';
 import { MessageProvider } from '../../providers/message/message';
 import { RegisterPage } from '../register/register';
+import { ChannelProvider } from '../../providers/channel/channel';
 
 
 
@@ -21,7 +22,12 @@ export class HomePage {
   username: AbstractControl;
   password: AbstractControl;
 
-  constructor(public navCtrl: NavController, private formbuilder: FormBuilder, private userprovider: UserProvider) {
+  constructor(
+    public navCtrl: NavController,
+    private formbuilder: FormBuilder,
+    private userprovider: UserProvider,
+    private channeProvder: ChannelProvider
+  ) {
 
     this.formgroup = this.formbuilder.group(
 
@@ -46,9 +52,8 @@ export class HomePage {
         console.log("Success!");
         this.userprovider.setToken(result.headers.get("authorization"));
         console.log(this.userprovider.getToken());
+        this.channeProvder.fetch();
         this.navCtrl.setRoot(ChannelPage);
-
-
       } else {
         console.log("invalid login attempt");
       }

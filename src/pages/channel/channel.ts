@@ -19,7 +19,6 @@ export class ChannelPage {
 
 
   public messages=[];
-  public channels=[];
 
   public message: any;
 
@@ -41,13 +40,16 @@ export class ChannelPage {
     private messageProvider: MessageProvider,
     private channelProvider: ChannelProvider
   ) {
-      this.getMessages();
-      this.getChannels();
+      //this.getMessages();
+      this.messageProvider.get(result =>{
+
+      });
+      //this.getChannels();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelPage');
-    this.start();
+    //this.start();
   }
 
 
@@ -56,25 +58,27 @@ export class ChannelPage {
   }
 
   getMessages(){
-    this.messageProvider.get(1, after => {
-      this.messages = after.json();
+    this.messageProvider.get(result =>{
+      
     });
   }
 
-  getChannels(){
-    this.timerToken = setInterval(this.channelProvider.get(channels => {
-      this.channels = channels;
-    }), 5000);
-  }
+  // getChannels(){
+  //   this.timerToken = setInterval(this.channelProvider.getuser(channels => {
+  //     this.channels = channels;
+  //   }), 5000);
+  // }
   
   runningLoopOfMessages(channelProvider: ChannelProvider) {
-    this.messageProvider.get(1, after => {
+    this.messageProvider.get( after => {
       this.messages = after.json();
     });
   }
   deleteMessage(messageId: number){
     this.messageProvider.delete(messageId, after =>{
-      this.getMessages();
+      this.messageProvider.get(callback => {
+        console.log(callback);
+      })
     });
   }
 
@@ -113,7 +117,7 @@ export class ChannelPage {
 
   sendMessage(){
     if (!this.message.trim()) return;
-    this.messageProvider.post(1, this.message, after => {
+    this.messageProvider.post(this.channelProvider.channel.id, this.message, after => {
       this.message = '';
       this.getMessages();
     });

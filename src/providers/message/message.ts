@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { UserProvider } from '../user/user';
 import { UrlProvider } from '../url/url';
+import { ChannelProvider } from '../channel/channel';
 
 /*
   Generated class for the MessageProvider provider.
@@ -13,10 +14,13 @@ import { UrlProvider } from '../url/url';
 @Injectable()
 export class MessageProvider {
 
+  public messages = [];
+
   constructor(
     public http: Http,
     public userProvider: UserProvider,
-    public urlProvider: UrlProvider
+    public urlProvider: UrlProvider,
+    public channelProvider: ChannelProvider
   ) {
     console.log('Hello MessageProvider Provider');
   }
@@ -29,7 +33,7 @@ export class MessageProvider {
     let options = new RequestOptions({headers: header})
     this.http.get(url, options).subscribe( (result : Response) => {
       console.log(result);
-    })
+    });
   }
  
   post(channelId: number, message: string, callback){
@@ -48,23 +52,26 @@ export class MessageProvider {
  
     this.http.post(url, body,options).subscribe( (result : Response) => {
       console.log(result);
-      this.get(channelId, after => {
+      this.get(after => {
         callback();
       })
     })
   }
  
-  get(channelId: number, callback){
-    var url: string = this.urlProvider.getBaseUrl() + "/messages?channelid=" + channelId ;
+  get(callback){
+    var url: string = this.urlProvider.getBaseUrl() + "/messages?channelId=" + this.channelProvider.channel.id ;
     var header = new Headers({
       'Authorization': this.userProvider.getToken(),
       'Content-Type': 'application/json'
       
     });
+
+    console.log(url);
     let options = new RequestOptions({headers: header});
  
     this.http.get(url,options).subscribe(result =>{
       console.log(result);
+      this.messages = result.json();
       callback(result);
     })
   }

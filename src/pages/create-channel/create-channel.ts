@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ChannelProvider } from '../../providers/channel/channel';
 
 /**
  * Generated class for the CreateChannelPage page.
@@ -15,11 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateChannelPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private channel: string;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public channelProvider: ChannelProvider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateChannelPage');
+  }
+
+  createChannel(){
+    console.log(this.channel)
+    if(this.channel.trim()){
+      this.channelProvider.create(this.channel, result => {
+        this.navCtrl.remove(1);
+      });
+    }
   }
 
 }

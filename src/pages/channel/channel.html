@@ -61,7 +61,7 @@
       </ion-list> -->
 
     <ion-list padding>
-      <ion-item-sliding *ngFor="let message of messages">
+      <ion-item-sliding *ngFor="let message of this.messageProvider.messages">
           <ion-item>{{message.user.username}} - {{message.message}}</ion-item>
     
         <ion-item-options side="right">

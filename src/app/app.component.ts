@@ -8,6 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { ChannelPage } from '../pages/channel/channel';
 import { CreateChannelPage } from '../pages/create-channel/create-channel';
 import { AllChannelsPage } from '../pages/all-channels/all-channels';
+import { ChannelProvider } from '../providers/channel/channel';
+import { MessageProvider } from '../providers/message/message';
 
 
 @Component({
@@ -20,7 +22,13 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public channelProvider: ChannelProvider,
+    public messageProvider: MessageProvider
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -39,6 +47,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.channelProvider.userChannels;
+  }
+
+  setChannel(channel){
+    this.channelProvider.channel = channel;
+    console.log(this.channelProvider.channel);
+    this.messageProvider.get( result => {
+    })
   }
 
   openPage(page) {

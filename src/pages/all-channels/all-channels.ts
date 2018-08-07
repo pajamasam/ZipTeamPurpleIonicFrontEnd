@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ChannelProvider } from '../../providers/channel/channel';
 
 /**
  * Generated class for the AllChannelsPage page.
@@ -15,11 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AllChannelsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public channelProvider: ChannelProvider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AllChannelsPage');
+  }
+
+  joinChannel(channel){
+    this.channelProvider.join(channel, result => {
+        this.navCtrl.remove(1);
+    });
   }
 
 }
