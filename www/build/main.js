@@ -187,15 +187,15 @@ var map = {
 		3
 	],
 	"../pages/channel/channel.module": [
-		285,
+		287,
 		2
 	],
 	"../pages/create-channel/create-channel.module": [
-		286,
+		285,
 		1
 	],
 	"../pages/register/register.module": [
-		287,
+		286,
 		0
 	]
 };
@@ -432,9 +432,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/all-channels/all-channels.module#AllChannelsPageModule', name: 'AllChannelsPage', segment: 'all-channels', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/channel/channel.module#ChannelPageModule', name: 'ChannelPage', segment: 'channel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-channel/create-channel.module#CreateChannelPageModule', name: 'CreateChannelPage', segment: 'create-channel', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/channel/channel.module#ChannelPageModule', name: 'ChannelPage', segment: 'channel', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["a" /* HttpClientModule */],
@@ -794,8 +794,9 @@ var UrlProvider = /** @class */ (function () {
         // constructor(public http: HttpClient) {
         //   console.log('Hello UrlProvider Provider');
         // }
-        this.baseUrl = "http://localhost:8080";
-        this.baseUrl = "https://zipteampurple.herokuapp.com";
+        //private baseUrl = "http://localhost:8080";
+        //private baseUrl = "https://zipteampurple.herokuapp.com";
+        this.baseUrl = "https://zipteampurplev2.herokuapp.com";
     }
     UrlProvider.prototype.setBaseUrl = function (baseUrl) {
         this.baseUrl = baseUrl;

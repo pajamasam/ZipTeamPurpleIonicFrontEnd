@@ -16,8 +16,7 @@ export class UrlProvider {
 
   //private baseUrl = "http://localhost:8080";
   //private baseUrl = "https://zipteampurple.herokuapp.com";
-  private baseUrl = "https://git.heroku.com/zipteampurplev2.git";
-  //https://git.heroku.com/zipteampurplev2.git
+  private baseUrl = "https://zipteampurplev2.herokuapp.com";
 
 
   setBaseUrl(baseUrl: string){
