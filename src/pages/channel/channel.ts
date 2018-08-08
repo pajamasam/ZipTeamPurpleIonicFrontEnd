@@ -40,11 +40,8 @@ export class ChannelPage {
     private messageProvider: MessageProvider,
     private channelProvider: ChannelProvider
   ) {
-      //this.getMessages();
       this.messageProvider.get(result =>{
-
       });
-      //this.getChannels();
   }
 
   ionViewDidLoad() {
@@ -62,12 +59,6 @@ export class ChannelPage {
       
     });
   }
-
-  // getChannels(){
-  //   this.timerToken = setInterval(this.channelProvider.getuser(channels => {
-  //     this.channels = channels;
-  //   }), 5000);
-  // }
   
   runningLoopOfMessages(channelProvider: ChannelProvider) {
     this.messageProvider.get( after => {
@@ -81,39 +72,6 @@ export class ChannelPage {
       })
     });
   }
-
-  // sendMessage(){
-  //   let addTodoAlert = this.alertController.create({
-  //     title: "Send Message",
-  //     message: "Enter a message:",
-  //     inputs: [
-  //       {
-  //         type: "text",
-  //         name: "addTodoInput"
-  //       }
-  //     ],
-  //     buttons: [
-  //         {
-  //           text: "Cancel"
-  //         },
-  //         {
-  //           text: "Send",
-  //           handler: (inputData) => {
-  //             let todoText;
-  //             todoText = inputData.addTodoInput;
-  //             //this.messageProider.getAll();
-  //             this.messageProvider.post(1, todoText, after => {
-  //               this.getMessages();
-  //             });
-              
-  //             //this.todos.push(todoText);
-  //             //this.todoProvider.addTodo(todoText);
-  //           }
-  //         }
-  //     ]
-  //   });
-  //   addTodoAlert.present();
-  // }
 
   sendMessage(){
     if (!this.message.trim()) return;
