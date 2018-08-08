@@ -14,7 +14,7 @@ import { UrlProvider } from '../url/url';
 export class ChannelProvider {
 
 
-  public channel = { "id": 1 };
+  public channel = { "id": 1, "name": "General"};
 
   public userChannels = [];
   public allChannels = [];

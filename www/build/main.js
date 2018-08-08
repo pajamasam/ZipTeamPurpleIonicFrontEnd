@@ -183,19 +183,19 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/all-channels/all-channels.module": [
-		284,
+		285,
 		3
 	],
 	"../pages/channel/channel.module": [
-		287,
+		284,
 		2
 	],
 	"../pages/create-channel/create-channel.module": [
-		285,
+		286,
 		1
 	],
 	"../pages/register/register.module": [
-		286,
+		287,
 		0
 	]
 };
@@ -224,7 +224,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__channel_channel__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_user_user__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_channel_channel__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -380,9 +380,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_channel_channel__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_user_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_user_user__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_message_message__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_channel_channel__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_url_url__ = __webpack_require__(49);
@@ -431,10 +431,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/channel/channel.module#ChannelPageModule', name: 'ChannelPage', segment: 'channel', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/all-channels/all-channels.module#AllChannelsPageModule', name: 'AllChannelsPage', segment: 'all-channels', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-channel/create-channel.module#CreateChannelPageModule', name: 'CreateChannelPage', segment: 'create-channel', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/channel/channel.module#ChannelPageModule', name: 'ChannelPage', segment: 'channel', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["a" /* HttpClientModule */],
@@ -579,8 +579,8 @@ var MyApp = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChannelProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_user__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_user__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__url_url__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -606,7 +606,7 @@ var ChannelProvider = /** @class */ (function () {
         this.http = http;
         this.userProvider = userProvider;
         this.urlProvider = urlProvider;
-        this.channel = { "id": 1 };
+        this.channel = { "id": 1, "name": "General" };
         this.userChannels = [];
         this.allChannels = [];
         //console.log('Hello ChannelProvider Provider');
@@ -698,24 +698,23 @@ var ChannelProvider = /** @class */ (function () {
     };
     ChannelProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__node_modules_angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user_user__["a" /* UserProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */]) === "function" && _c || Object])
     ], ChannelProvider);
     return ChannelProvider;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=channel.js.map
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__url_url__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -863,11 +862,11 @@ var ChannelPage = /** @class */ (function () {
     };
     ChannelPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ChannelPage');
-        //this.start();
+        this.start();
     };
     ChannelPage.prototype.start = function () {
         var _this = this;
-        this.timerToken = setInterval(function () { return _this.runningLoopOfMessages(_this.channelProvider); }, 5000);
+        this.timerToken = setInterval(function () { return _this.runningLoopOfMessages(_this.channelProvider); }, 2500);
     };
     ChannelPage.prototype.getMessages = function () {
         this.messageProvider.get(function (result) {
@@ -934,7 +933,7 @@ var ChannelPage = /** @class */ (function () {
     };
     ChannelPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-channel',template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/'\n\n\n<!-- <ion-buttons start>\n\n  <button ion-button icon-only menuToggle>\n\n    <ion-icon name="menu"></ion-icon>\n\n  </button>\n\n</ion-buttons> -->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Channel</ion-title>\n\n    <ion-buttons start>\n\n        <button ion-button icon-only menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <!-- <button ion-button (click)="sendMessage()">\n          <ion-icon name="add"></ion-icon>\n        </button> -->\n        <button ion-button (click)="getMessages()">\n          <ion-icon name="refresh"></ion-icon>\n        </button>\n      \n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n    <!-- <ion-list padding>\n        <h1>Channels</h1>\n        <ion-item-sliding *ngFor="let channel of channels">\n            <ion-item>{{channel.name}}</ion-item>\n\n          <ion-item-options side="right">\n              <button ion-button>\n                  <ion-icon name="settings"></ion-icon>\n                </button>\n              <button color="danger" ion-button (click)="deleteMessage(message.id)">\n                <ion-icon name="trash"></ion-icon>\n              </button>\n     \n          </ion-item-options>\n        </ion-item-sliding>\n\n        <button>Create new Channel</button>\n        \n        <ion-item>Todo 2</ion-item>\n        <ion-item>Todo 3</ion-item>\n      </ion-list> -->\n\n    <ion-list padding>\n      <ion-item-sliding *ngFor="let message of this.messageProvider.messages">\n          <ion-item>{{message.user.username}} - {{message.message}}</ion-item>\n    \n        <ion-item-options side="right">\n            <button ion-button>\n                <ion-icon name="settings"></ion-icon>\n              </button>\n            <button color="danger" ion-button (click)="deleteMessage(message.id)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n   \n        </ion-item-options>\n      </ion-item-sliding>\n\n\n\n\n\n\n      <ion-footer>\n\n        <ion-item >\n\n          <ion-input #chat_input\n          type="text"\n          placeholder="Text Input"\n          [(ngModel)]="message"\n          (keyup.enter)="sendMessage()"\n          >\n\n          </ion-input>\n\n        </ion-item>\n\n\n\n          <!-- <textarea #chat_input\n          placeholder="Text Input"\n          [(ngModel)]="message"\n          (keyup.enter)="sendMessage()"\n          >\n          </textarea> -->\n  \n\n\n          <!-- Do we need to keep this button?\n          <button ion-button clear icon-only item-right (click)="sendMessage()">\n          <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n          </button> -->\n  \n      </ion-footer>\n\n\n\n\n    </ion-list>\n\n\n    \n   \n   </ion-content>\n\n\n'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/,
+            selector: 'page-channel',template:/*ion-inline-start:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/'\n\n\n<!-- <ion-buttons start>\n\n  <button ion-button icon-only menuToggle>\n\n    <ion-icon name="menu"></ion-icon>\n\n  </button>\n\n</ion-buttons> -->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{this.channelProvider.channel.name}}</ion-title>\n\n    <ion-buttons start>\n\n        <button ion-button icon-only menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <!-- <button ion-button (click)="sendMessage()">\n          <ion-icon name="add"></ion-icon>\n        </button> -->\n        <button ion-button (click)="getMessages()">\n          <ion-icon name="refresh"></ion-icon>\n        </button>\n      \n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n    <!-- <ion-list padding>\n        <h1>Channels</h1>\n        <ion-item-sliding *ngFor="let channel of channels">\n            <ion-item>{{channel.name}}</ion-item>\n\n          <ion-item-options side="right">\n              <button ion-button>\n                  <ion-icon name="settings"></ion-icon>\n                </button>\n              <button color="danger" ion-button (click)="deleteMessage(message.id)">\n                <ion-icon name="trash"></ion-icon>\n              </button>\n     \n          </ion-item-options>\n        </ion-item-sliding>\n\n        <button>Create new Channel</button>\n        \n        <ion-item>Todo 2</ion-item>\n        <ion-item>Todo 3</ion-item>\n      </ion-list> -->\n\n    <ion-list padding>\n      <ion-item-sliding *ngFor="let message of this.messageProvider.messages">\n          <ion-item>{{message.user.username}} - {{message.message}}</ion-item>\n    \n        <ion-item-options side="right">\n            <button ion-button>\n                <ion-icon name="settings"></ion-icon>\n              </button>\n            <button color="danger" ion-button (click)="deleteMessage(message.id)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n   \n        </ion-item-options>\n      </ion-item-sliding>\n\n\n\n\n\n\n      <ion-footer>\n\n        <ion-item >\n\n          <ion-input #chat_input\n          type="text"\n          placeholder="Text Input"\n          [(ngModel)]="message"\n          (keyup.enter)="sendMessage()"\n          >\n\n          </ion-input>\n\n        </ion-item>\n\n\n\n          <!-- <textarea #chat_input\n          placeholder="Text Input"\n          [(ngModel)]="message"\n          (keyup.enter)="sendMessage()"\n          >\n          </textarea> -->\n  \n\n\n          <!-- Do we need to keep this button?\n          <button ion-button clear icon-only item-right (click)="sendMessage()">\n          <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n          </button> -->\n  \n      </ion-footer>\n\n\n\n\n    </ion-list>\n\n\n    \n   \n   </ion-content>\n\n\n'/*ion-inline-end:"/Users/nicholasm/Labs/ZipTeamPurple-FrontEnd/src/pages/channel/channel.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_message_message__["a" /* MessageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_message_message__["a" /* MessageProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_channel_channel__["a" /* ChannelProvider */]) === "function" && _e || Object])
     ], ChannelPage);
@@ -952,8 +951,8 @@ var ChannelPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__url_url__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__channel_channel__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1043,10 +1042,12 @@ var MessageProvider = /** @class */ (function () {
     };
     MessageProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__user_user__["a" /* UserProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__user_user__["a" /* UserProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__channel_channel__["a" /* ChannelProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__channel_channel__["a" /* ChannelProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_2__user_user__["a" /* UserProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__url_url__["a" /* UrlProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__channel_channel__["a" /* ChannelProvider */]])
     ], MessageProvider);
     return MessageProvider;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=message.js.map

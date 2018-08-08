@@ -49,12 +49,12 @@ export class ChannelPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChannelPage');
-    //this.start();
+    this.start();
   }
 
 
   start() {
-    this.timerToken = setInterval( ()=> this.runningLoopOfMessages(this.channelProvider), 5000);
+    this.timerToken = setInterval( ()=> this.runningLoopOfMessages(this.channelProvider), 2500);
   }
 
   getMessages(){
